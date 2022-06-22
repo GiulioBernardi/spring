@@ -13,8 +13,6 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(generator = "funcionario", strategy = GenerationType.SEQUENCE)
-    //TODO mudar nome da coluna do id
-    @Column(name = "MUDAR DEPOIS")
     private Long id;
 
     @Column(name = "nm_funcionario", length = 55, nullable = false)
