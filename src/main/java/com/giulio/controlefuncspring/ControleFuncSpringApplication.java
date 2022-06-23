@@ -24,7 +24,14 @@ public class ControleFuncSpringApplication {
             f.setNome("Carlos");
             f.setIdade(20);
 
+            Funcionario f1 = new Funcionario();
+
+            f1.setNome("Ana");
+            f1.setIdade(23);
+
+
             funcionarioRepository.save(f);
+            funcionarioRepository.save(f1);
         };
     }
 

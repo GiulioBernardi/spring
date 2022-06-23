@@ -2,9 +2,8 @@ package com.giulio.controlefuncspring.controller;
 
 import com.giulio.controlefuncspring.model.Funcionario;
 import com.giulio.controlefuncspring.repository.FuncionarioRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +22,19 @@ public class FuncionarioController {
     public List<Funcionario> list(){
         return funcionarioRepository.findAll();
     }
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Funcionario createFuncionario(@RequestBody Funcionario funcionario){
+        return funcionarioRepository.save(funcionario);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void deleteFuncionario(@PathVariable("id") Long id){
+        funcionarioRepository.deleteById(id);
+    }
+
+
 
 }
