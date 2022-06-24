@@ -35,6 +35,12 @@ public class FuncionarioController {
         funcionarioRepository.deleteById(id);
     }
 
+    @PutMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    public void updateFuncionario(@PathVariable("id") Funcionario funcionario){
+        funcionarioRepository.save(funcionario);
+    }
+
 
 
 }
